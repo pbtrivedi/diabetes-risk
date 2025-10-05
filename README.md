@@ -9,6 +9,7 @@ The study employed multiple supervised learning algorithms including Logistic Re
 Key findings reveal that despite sophisticated modeling approaches including balanced ensemble methods, resampling techniques (SMOTE-Tomek), and stacking classifiers, the fundamental challenge of class imbalance and potentially limited predictive power of available features persisted throughout the analysis.
 
 ## Exploratory Data Analysis (EDA)
+For detailed exploratory data analysis, please review [diabetes-risk-eda.md](diabetes-risk-eda.md)
 
 ### Data Source
 The analysis uses the CDC Diabetes Health Indicators dataset from the UCI Machine Learning Repository, containing demographic, lifestyle, and clinical risk indicators from the CDC's Behavioral Risk Factor Surveillance System (BRFSS) 2014 data.
@@ -131,6 +132,7 @@ pip install -r requirements.txt
 The project directory is structured as follows:
 ```
 ucb_aiml/repos/diabetes-risk/
+├── diabetes-risk-eda.md            # Exploratory Data Analysis 
 ├── diabetes-risk-prediction.ipynb  # Main Jupyter Notebook with analysis and models
 ├── README.md                       # Project documentation
 ├── requirements.txt                # Python dependencies
@@ -139,8 +141,10 @@ ucb_aiml/repos/diabetes-risk/
     ├── bivariate_plots.png         # Feature vs target plots
     ├── correlation_heatmap.png     # Correlation matrix heatmap
     ├── correlation_with_target.png # Feature-target correlations
-    ├── roc_curve.png              # ROC curve visualization
+    ├── roc_curve.png               # ROC curve visualization
     └── precision_recall_curve.png  # Precision-Recall curve
+└── data/                           # Directory for copy of data files
+      
 ```
 
 ### How to Run
