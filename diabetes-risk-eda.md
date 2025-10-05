@@ -1,6 +1,6 @@
-# Diabetes Risk Extended Data Analysis (EDA)
+# Diabetes Risk Exploratory Data Analysis (EDA)
 
-This document provides an extended data analysis of the CDC Diabetes Health Indicators dataset, focusing on univariate analysis, bivariate analysis, and the correlation of features with the target variable.
+This document provides an exploratory data analysis of the CDC Diabetes Health Indicators dataset, focusing on univariate analysis, bivariate analysis, and the correlation of features with the target variable.
 
 ## Dataset Overview
 
@@ -48,12 +48,6 @@ The `GenHlth` variable was transformed to improve interpretability:
 ### Distribution Analysis
 Univariate plots were created for all features to understand individual variable distributions:
 
-**Visualization Approach:**
-- **Categorical/Binary variables** (< 10 unique values): Count plots using seaborn
-- **Continuous variables**: Histograms with kernel density estimation (KDE)
-- **Grid layout**: 3 columns with appropriate number of rows to accommodate all variables
-- **Color scheme**: Viridis palette for categorical variables, blue for continuous variables
-
 ![Univariate Analysis Plots](images/univariate_plots.png)
 
 **Key Insights from Univariate Analysis:**
@@ -67,12 +61,6 @@ Univariate plots were created for all features to understand individual variable
 
 ### Feature-Target Relationships
 Bivariate analysis examined the relationship between each feature and the target variable (`Diabetes_binary`):
-
-**Visualization Approach:**
-- **Categorical/Binary features**: Count plots with hue based on diabetes status
-- **Continuous features**: Box plots showing distribution across diabetes categories
-- **Color scheme**: Viridis palette for consistent visualization
-- **Layout**: Grid format matching univariate analysis for easy comparison
 
 ![Bivariate Analysis Plots](images/bivariate_plots.png)
 
@@ -92,12 +80,6 @@ Bivariate analysis examined the relationship between each feature and the target
 ### Correlation Heatmap
 A comprehensive correlation matrix was generated to identify relationships between all variables:
 
-**Visualization Details:**
-- **Size**: 12x10 figure for clear visibility
-- **Annotation**: Correlation coefficients displayed with 2 decimal places
-- **Color scheme**: Coolwarm colormap (blue for negative, red for positive correlations)
-- **Format**: Square heatmap for symmetric correlation matrix
-
 ![Correlation Heatmap](images/correlation_heatmap.png)
 
 ### Feature Correlations with Target Variable
@@ -112,64 +94,12 @@ The correlation coefficients between each feature and the target variable (`Diab
 5. **DiffWalk** - Difficulty walking indicates potential diabetes complications or risk factors
 
 **Notable Negative Correlations:**
-- **GenHlth** - Better general health negatively correlated with diabetes (as expected after transformation)
-- **PhysActivity** - Physical activity shows protective effect against diabetes
-- **Income** - Higher income levels associated with lower diabetes risk
-- **Education** - Higher education levels correlate with lower diabetes risk
+1. **GenHlth** - Better general health negatively correlated with diabetes (as expected after transformation)
+2. **PhysActivity** - Physical activity shows protective effect against diabetes
+3. **Income** - Higher income levels associated with lower diabetes risk
+4. **Education** - Higher education levels correlate with lower diabetes risk
 
 **Weaker Correlations:**
 - **Fruits** and **Veggies** consumption show minimal correlation with diabetes status
 - **Sex** shows relatively weak correlation
 - **Smoker** status shows moderate correlation
-
-## Key Findings and Insights
-
-### Strong Risk Factors
-1. **High Blood Pressure**: Strongest predictor among the features
-2. **BMI**: Continuous variable with strong positive correlation
-3. **High Cholesterol**: Significant metabolic risk factor
-4. **Age**: Clear age-related diabetes risk progression
-5. **Difficulty Walking**: Strong indicator of physical limitations associated with diabetes
-
-### Lifestyle Factors
-1. **Physical Activity**: Protective factor against diabetes
-2. **General Health Status**: Strong inverse relationship with diabetes risk
-3. **Walking Difficulty**: Indicator of physical limitations associated with diabetes
-
-### Socioeconomic Factors
-1. **Income Level**: Higher income associated with lower diabetes risk
-2. **Education Level**: Higher education correlates with better diabetes outcomes
-3. **Healthcare Access**: Important for diabetes prevention and management
-
-### Moderate Risk Factors
-1. **Stroke History**: Cardiovascular comorbidity
-2. **Heart Disease**: Related cardiovascular risk
-3. **Smoking Status**: Lifestyle risk factor
-
-### Cardiovascular Connections
-The analysis reveals strong connections between diabetes and cardiovascular health:
-- High blood pressure shows the strongest correlation
-- Heart disease and stroke history are significant indicators
-- These relationships suggest shared risk factors and pathophysiology
-
-## Implications for Machine Learning Models
-
-Based on this EDA, the following features are likely to be most important for diabetes prediction models:
-
-**High Importance Features:**
-- HighBP, BMI, HighChol, Age, GenHlth, DiffWalk
-
-**Moderate Importance Features:**
-- PhysActivity, Income, Education, HeartDiseaseorAttack, Stroke
-
-**Lower Importance Features:**
-- Fruits, Veggies, Sex, Smoker
-
-### Model Development Recommendations
-
-1. **Feature Engineering**: Consider creating composite features combining related health indicators
-2. **Class Imbalance**: Check target variable distribution for potential imbalance issues
-3. **Feature Selection**: Use correlation analysis to avoid multicollinearity
-4. **Validation Strategy**: Ensure robust cross-validation given the healthcare context
-
-This comprehensive analysis provides a solid foundation for feature selection and model development in diabetes risk prediction tasks, with clear visual evidence supporting the relationships between features and diabetes risk.
